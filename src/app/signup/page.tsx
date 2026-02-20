@@ -59,7 +59,7 @@ export default function SignupPage() {
               href="/login"
               className="text-foreground font-medium underline-offset-4 hover:underline"
             >
-              Login
+              Log in
             </Link>
           </p>
 

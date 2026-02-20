@@ -30,7 +30,7 @@ export default function LoginPage() {
               Welcome back!
             </h1>
             <p className="text-muted-foreground text-sm">
-              Login to your Dodo Payments account
+              Log in to your Dodo Payments account
             </p>
           </div>
 
@@ -69,7 +69,7 @@ export default function LoginPage() {
               </div>
             )}
             <Button type="submit" className="w-full">
-              Login
+              Log in
             </Button>
           </form>
 
