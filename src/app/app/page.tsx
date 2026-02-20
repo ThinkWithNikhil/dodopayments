@@ -32,36 +32,11 @@ import { cn } from "@/lib/utils";
 export default function AppPage() {
   return (
     <div className="flex flex-col gap-6 p-6">
-      {/* Test Mode Banner */}
-      <Alert className="bg-muted/50 border-muted">
-        <AlertDescription className="flex items-center justify-between gap-4">
-          <span>You are in Test Mode.</span>
-          <Link
-            href="#"
-            className="text-primary hover:underline font-medium shrink-0"
-          >
-            Learn More
-          </Link>
-        </AlertDescription>
-      </Alert>
-
       {/* Action Required Banner */}
-      <Alert variant="destructive" className="bg-destructive text-destructive-foreground [&>svg]:text-destructive-foreground">
-        <AlertCircle className="size-4" />
-        <div className="col-start-2 flex w-full items-center justify-between gap-4">
-          <AlertTitle className="min-h-0">ACTION REQUIRED : PRODUCT INFORMATION FORM PENDING</AlertTitle>
-          <Link
-            href="#"
-            className="text-destructive-foreground hover:underline font-medium underline-offset-2 shrink-0"
-          >
-            Submit details
-          </Link>
-        </div>
-      </Alert>
+      
 
       {/* Get Started - Activate live payments */}
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold tracking-tight">Get Started</h2>
         <Card className="overflow-hidden bg-gradient-to-br from-muted/50 to-transparent">
           <div className="flex flex-col gap-6 p-6 md:flex-row md:items-start md:justify-between">
             <div className="flex flex-1 flex-col gap-4">

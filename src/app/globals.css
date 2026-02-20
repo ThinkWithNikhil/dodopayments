@@ -48,6 +48,9 @@
 }
 
 :root {
+  --primary: rgb(129 183 0);
+  --primary-light: rgb(198 254 30);
+  --primary-dark: rgb(129 183 0);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -123,4 +126,15 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Dashboard sidebar: same bg as main content, keep border/radius for separation */
+.dashboard-sidebar [data-slot="sidebar-inner"] {
+  --sidebar: var(--background);
+  background: var(--background);
+}
+
+.dark .dashboard-sidebar [data-slot="sidebar-inner"] {
+  --sidebar: var(--background);
+  background: var(--background);
 }

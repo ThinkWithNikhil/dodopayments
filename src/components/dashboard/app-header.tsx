@@ -1,9 +1,7 @@
 "use client";
 
-import { Search, Moon, Bell, MessageCircle } from "lucide-react";
+import { Search, Moon, Bell, User } from "lucide-react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,50 +14,51 @@ import { cn } from "@/lib/utils";
 
 export function AppHeader({ title = "Get Started" }: { title?: string }) {
   return (
-    <header className="flex h-14 shrink-0 items-center gap-4 border-b border-border bg-background px-4">
-      <SidebarTrigger className="-ml-1 md:hidden" />
-      <div className="flex flex-1 items-center gap-4">
-        <div className="hidden md:flex md:items-center md:gap-2">
-          <span className="text-sm font-medium text-muted-foreground">
-            ThinkWithNikhil
-          </span>
-          <span className="text-muted-foreground">/</span>
-          <span className="text-sm font-medium">{title}</span>
-        </div>
-        <div className="flex flex-1 justify-center md:max-w-sm md:flex-initial">
-          <div className="relative w-full">
-            <Search className="text-muted-foreground absolute left-3 top-1/2 size-4 -translate-y-1/2" />
-            <Input
-              placeholder="Press /"
-              className="h-9 w-full pl-9 pr-3"
-              readOnly
-            />
-          </div>
-        </div>
-        <Badge
-          variant="secondary"
-          className={cn(
-            "hidden shrink-0 md:inline-flex",
-            "bg-green-500/15 text-green-700 dark:bg-green-500/20 dark:text-green-400",
-            "border-0"
-          )}
-        >
-          Dodo Games
-        </Badge>
+    <header className="flex h-14 shrink-0 items-center justify-between gap-4 border-b border-border bg-background px-6">
+      {/* Left: mobile trigger + page title only */}
+      <div className="flex min-w-0 flex-1 items-center gap-2 md:flex-initial">
+        <SidebarTrigger className="-ml-1 shrink-0 md:hidden" />
+        <h2 className="truncate text-xl font-semibold tracking-tight">
+          {title}
+        </h2>
       </div>
-      <div className="flex items-center gap-1">
-        <Button variant="ghost" size="icon" className="size-9" aria-label="Toggle theme">
+
+      {/* Right: search + Dodo Games button + Moon, Bell, Avatar dropdown */}
+      <div className="flex shrink-0 items-center gap-2">
+        <div className="border-input bg-background flex h-9 w-48 min-w-0 items-center gap-1.5 rounded-md border px-3 shadow-xs sm:w-56">
+          <Search className="text-muted-foreground size-4 shrink-0" />
+          <span className="text-muted-foreground truncate text-sm">Press</span>
+          <kbd className="bg-muted text-muted-foreground inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded px-1 font-mono text-xs">
+            /
+          </kbd>
+        </div>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-9 rounded-md"
+          aria-label="Toggle theme"
+        >
           <Moon className="size-4" />
         </Button>
-        <Button variant="ghost" size="icon" className="size-9" aria-label="Notifications">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-9 rounded-md"
+          aria-label="Notifications"
+        >
           <Bell className="size-4" />
         </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon" className="size-9 rounded-full" aria-label="User menu">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-9 rounded-md"
+              aria-label="User menu"
+            >
               <Avatar className="size-8">
-                <AvatarFallback className="bg-primary/10 text-primary text-xs">
-                  T
+                <AvatarFallback className="bg-muted text-muted-foreground">
+                  <User className="size-4" />
                 </AvatarFallback>
               </Avatar>
             </Button>
@@ -70,18 +69,6 @@ export function AppHeader({ title = "Get Started" }: { title?: string }) {
             <DropdownMenuItem>Log out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="relative gap-2 pl-2 pr-3"
-          aria-label="Chat"
-        >
-          <MessageCircle className="size-4" />
-          <span className="hidden sm:inline">Chat</span>
-          <span className="bg-destructive absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full text-[10px] font-medium text-white">
-            1
-          </span>
-        </Button>
       </div>
     </header>
   );
