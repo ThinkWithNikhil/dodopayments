@@ -13,13 +13,26 @@ export function AuthLayout({ children }: { children: React.ReactNode }) {
       {/* Banner section - right, hidden on mobile */}
       <div className="hidden md:block md:w-1/2 lg:w-[55%]">
         <div className="relative h-full min-h-screen w-full">
+          {/* Backdrop: aside-banner fills the entire right column */}
           <Image
             src={BANNER_URL}
-            alt="Dodo Payments"
+            alt=""
             fill
             className="object-cover object-left"
             priority
           />
+          {/* Padded inner container: even L/T/B padding, no right padding, rounded */}
+          <div className="absolute inset-0 overflow-hidden rounded-xl p-20 pr-0">
+            <div className="relative h-full w-full">
+              <Image
+                src="/dodopayments-demo.png"
+                alt="Dodo Payments dashboard"
+                fill
+                className="object-cover object-left"
+                sizes="(min-width: 768px) 55vw, 0px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { Separator } from "@/components/ui/separator";
 
 export function AuthSeparator() {
   return (
-    <div className="flex items-center gap-3 py-4">
+    <div className="flex items-center gap-3 py-1">
       <Separator className="flex-1" />
       <span className="text-muted-foreground text-xs font-medium">Or</span>
       <Separator className="flex-1" />
