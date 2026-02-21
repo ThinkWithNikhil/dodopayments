@@ -180,7 +180,7 @@ export default function OnboardingPage() {
                     if (!countryEligible && !categorySupported) {
                       return (
                         <>
-                          We don&apos;t support {categoryLabel} category or {countryName} location yet. We&apos;re
+                          We don&apos;t legally support <span className="font-semibold">{categoryLabel}</span> category or <span className="font-semibold">{countryName}</span> location yet. We&apos;re
                           working on it—tell us you want to be notified and we&apos;ll email you when
                           we do.
                         </>
@@ -189,14 +189,14 @@ export default function OnboardingPage() {
                     if (countryEligible && !categorySupported) {
                       return (
                         <>
-                          We don&apos;t support {categoryLabel} category yet. We&apos;re working on it—tell us
+                          We don&apos;t legally support <span className="font-semibold">{categoryLabel}</span> category yet. We&apos;re working on it—tell us
                           you want to be notified and we&apos;ll email you when we do.
                         </>
                       );
                     }
                     return (
                       <>
-                        We don&apos;t support {countryName} location yet. We&apos;re working on it—tell us you
+                        We don&apos;t legally support <span className="font-semibold">{countryName}</span> location yet. We&apos;re working on it—tell us you
                         want to be notified and we&apos;ll email you when we do.
                       </>
                     );
