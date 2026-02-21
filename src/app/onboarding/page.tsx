@@ -40,7 +40,7 @@ function CountryFlag({ code }: { code: string }) {
       src={`${FLAG_BASE}/${code}.svg`}
       alt=""
       role="presentation"
-      className="size-5 shrink-0 rounded-sm object-cover"
+      className="h-5 w-7 shrink-0 rounded-sm object-cover"
       width={20}
       height={14}
     />
@@ -254,6 +254,7 @@ export default function OnboardingPage() {
               placeholder="Your business name"
               required
               className="w-full"
+              autoFocus={true}
             />
             <p className="text-muted-foreground text-xs">
               Feel free to use your full name if you&apos;re an unregistered business.
