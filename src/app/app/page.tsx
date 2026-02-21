@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { DashboardGetStartedContent } from "@/components/dashboard/dashboard-get-started-content";
 
 const REVEAL_DURATION_MS = 600;
 
-export default function AppPage() {
+function AppPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const revealParam = searchParams.get("reveal");
@@ -53,5 +53,13 @@ export default function AppPage() {
         />
       )}
     </>
+  );
+}
+
+export default function AppPage() {
+  return (
+    <Suspense fallback={<DashboardGetStartedContent />}>
+      <AppPageContent />
+    </Suspense>
   );
 }
