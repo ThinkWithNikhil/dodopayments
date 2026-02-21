@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  AlertCircle,
   FileText,
   Banknote,
   CheckCircle2,
@@ -11,12 +10,12 @@ import {
   Square,
   Code2,
   HelpCircle,
+  ArrowRight,
 } from "lucide-react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -35,50 +34,38 @@ export default function AppPage() {
       {/* Action Required Banner */}
       
 
-      {/* Get Started - Activate live payments */}
-      <section className="space-y-4">
-        <Card className="overflow-hidden bg-gradient-to-br from-muted/50 to-transparent">
-          <div className="flex flex-col gap-6 p-6 md:flex-row md:items-start md:justify-between">
-            <div className="flex flex-1 flex-col gap-4">
-              <div className="flex items-center gap-2">
-                <div className="flex size-10 items-center justify-center rounded-full bg-primary/10">
-                  <AlertCircle className="size-5 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Activate live payments</CardTitle>
-              </div>
-              <CardDescription className="text-sm leading-relaxed max-w-xl">
-                To enable live payments, merchants are required to complete
-                account verification by submitting their product and payout
-                details. Once submitted, our compliance team will review the
-                information and activate live payments. This helps us maintain
-                compliance with tax requirements, card-network standards and our
-                Merchant Acceptance Policy.
-              </CardDescription>
-              <Button asChild className="w-fit">
-                <Link href="#">Submit details</Link>
+      {/* Activate payments – Stripe-style, no card, big fonts */}
+      <section className="relative overflow-hidden rounded-xl bg-background py-10 md:py-14">
+        <div className="relative flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div className="flex max-w-2xl flex-1 flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <Badge
+                variant="outline"
+                className="w-fit border-amber-200 bg-amber-50 font-medium text-amber-700 dark:border-amber-700 dark:bg-amber-950/50 dark:text-amber-300"
+              >
+                <span className="size-1.5 shrink-0 rounded-full bg-amber-500" aria-hidden />
+                PENDING
+              </Badge>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-[2.5rem]">
+                Activate payments on your account
+              </h2>
+            </div>
+            <p className="max-w-xl mb-2 text-base leading-relaxed text-muted-foreground md:text-lg">
+              Fill out your business profile to accept payments. Once submitted, our compliance team will review the information and activate live payments. Any progress you make will be saved, so you can always finish later.
+            </p>
+            <div className="flex flex-wrap items-center gap-6">
+              <Button asChild size="lg" className="h-11 w-fit px-6 text-base font-medium">
+                <Link href="#" className="inline-flex items-center gap-2">
+                  Activate payments
+                  <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="link" size="lg" className="h-11 px-0 text-base text-foreground underline-offset-4 hover:text-foreground/80">
+                <Link href="#">Merchant Acceptance Policy</Link>
               </Button>
             </div>
-            <div className="flex shrink-0 flex-col gap-0 md:min-w-[200px]">
-              <div className="flex flex-col border-l-2 border-muted pl-4 gap-0">
-                <StepItem
-                  label="PRODUCT REVIEW"
-                  icon={FileText}
-                  status="pending"
-                />
-                <StepItem
-                  label="PAYOUT DETAILS"
-                  icon={Banknote}
-                  status="pending"
-                />
-                <StepItem
-                  label="Live Payments Activated"
-                  icon={CheckCircle2}
-                  status="done"
-                />
-              </div>
-            </div>
           </div>
-        </Card>
+        </div>
       </section>
 
       {/* Create a product */}
@@ -178,7 +165,7 @@ function StepItem({
   status: "pending" | "done";
 }) {
   return (
-    <div className="relative flex items-start gap-3 py-2 first:pt-0 last:pb-0">
+    <div className="relative flex items-start gap-3 py-3 first:pt-0 last:pb-0">
       <div
         className={cn(
           "flex size-8 shrink-0 items-center justify-center rounded-full border-2 -ml-[2.125rem]",
@@ -196,7 +183,7 @@ function StepItem({
       <div className="flex flex-col pt-0.5">
         <span
           className={cn(
-            "text-xs font-medium",
+            "text-sm font-medium",
             status === "done"
               ? "text-green-700 dark:text-green-400"
               : "text-muted-foreground"

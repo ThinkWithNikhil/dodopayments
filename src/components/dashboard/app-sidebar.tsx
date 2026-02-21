@@ -64,7 +64,7 @@ export function AppSidebar() {
   return (
     <Sidebar className="dashboard-sidebar">
       <SidebarHeader>
-        <div className="flex items-center gap-2 px-6 py-2">
+        <div className="flex items-center gap-2 px-4 py-2">
           <Avatar className="size-8 shrink-0 bg-blue-500">
             <AvatarFallback className="bg-transparent text-white text-sm font-medium">
               T
@@ -131,7 +131,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="flex flex-col gap-2 bg-muted/30 px-6 py-2">
+      <SidebarFooter className="flex flex-col gap-2 px-6 py-2">
         <SidebarMenu>
           {footerNav.map((item) => (
             <SidebarMenuItem key={item.label}>

@@ -28,7 +28,7 @@ export default function AppLayout({
             href="#"
             className="underline underline-offset-2 hover:opacity-90"
           >
-            Learn more
+            Learn more.
           </Link>
         </div>
         <div className="flex items-center gap-1 font-medium">
@@ -36,7 +36,7 @@ export default function AppLayout({
           <Link
             href="#"
             className="underline underline-offset-2 hover:opacity-90"
-          >verify your business</Link>
+          >verify your business.</Link>
         </div>
       </aside>
       {/* Content starts below the banner; variable used by sidebar for offset */}
