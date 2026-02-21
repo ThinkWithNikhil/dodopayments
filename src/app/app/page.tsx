@@ -44,7 +44,7 @@ export default function AppPage() {
                 className="w-fit border-amber-200 bg-amber-50 font-medium text-amber-700 dark:border-amber-700 dark:bg-amber-950/50 dark:text-amber-300"
               >
                 <span className="size-1.5 shrink-0 rounded-full bg-amber-500" aria-hidden />
-                PENDING
+                VERIFICATION STATUS: PENDING
               </Badge>
               <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-[2.5rem]">
                 Activate payments on your account
