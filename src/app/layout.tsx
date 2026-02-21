@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Dodo Payments",
   description: "Dodo Payments - Simple, secure payments for your business",
+  icons: {
+    icon: "https://app.dodopayments.com/logo/logo.svg",
+  },
 };
 
 export default function RootLayout({
