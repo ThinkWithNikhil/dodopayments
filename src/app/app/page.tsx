@@ -77,30 +77,24 @@ export default function AppPage() {
             description="Perfect for single purchases or lifetime deals."
             icon={Package}
             iconClassName="text-blue-600 bg-blue-500/10"
-            links={[
-              { label: "Learn more", href: "#" },
-              { label: "Create sample product", href: "#" },
-            ]}
+            mainAction={{ label: "Create sample product", href: "#" }}
+            learnMore={{ href: "#" }}
           />
           <ProductCard
             title="Subscription product"
             description="Recurring billing for SaaS and memberships."
             icon={Calendar}
             iconClassName="text-violet-600 bg-violet-500/10"
-            links={[
-              { label: "Learn more", href: "#" },
-              { label: "Create sample product", href: "#" },
-            ]}
+            mainAction={{ label: "Create sample product", href: "#" }}
+            learnMore={{ href: "#" }}
           />
           <ProductCard
             title="Usage based product"
             description="Bill your customers for actual usage or API calls."
             icon={PieChart}
             iconClassName="text-pink-600 bg-pink-500/10"
-            links={[
-              { label: "Learn more", href: "#" },
-              { label: "Create sample product", href: "#" },
-            ]}
+            mainAction={{ label: "Create sample product", href: "#" }}
+            learnMore={{ href: "#" }}
           />
         </div>
       </section>
@@ -116,21 +110,21 @@ export default function AppPage() {
             description="Easily generate payment links directly from your dashboard. Share them through email, social media, or embed them on your website for instant payment acceptance."
             icon={ThumbsUp}
             iconClassName="text-amber-600 bg-amber-500/10"
-            links={[{ label: "Learn more", href: "#" }]}
+            learnMore={{ href: "#" }}
           />
           <ProductCard
             title="Inline/Overlay Checkout"
             description="Implement the checkout as an overlay on your website or app for a smooth, branded experience. This approach keeps users engaged on your page while allowing for customization to reflect your brand."
             icon={Square}
             iconClassName="text-violet-600 bg-violet-500/10"
-            links={[{ label: "Learn more", href: "#" }]}
+            learnMore={{ href: "#" }}
           />
           <ProductCard
             title="Full SDK Integration"
             description="SDKs in languages like TypeScript, Python, and Java provide tailored solutions for seamless integration. They give you access to all payment, subscription & customer portal APIs."
             icon={Code2}
             iconClassName="text-blue-600 bg-blue-500/10"
-            links={[{ label: "Learn more", href: "#" }]}
+            learnMore={{ href: "#" }}
           />
         </div>
       </section>
@@ -201,14 +195,18 @@ function ProductCard({
   description,
   icon: Icon,
   iconClassName,
-  links,
+  mainAction,
+  learnMore,
 }: {
   title: string;
   description: string;
   icon: React.ElementType;
   iconClassName: string;
-  links: { label: string; href: string }[];
+  mainAction?: { label: string; href: string };
+  learnMore?: { href: string };
 }) {
+  const hasFooter = mainAction || learnMore;
+
   return (
     <Card>
       <CardHeader>
@@ -223,13 +221,20 @@ function ProductCard({
         <CardTitle className="text-base">{title}</CardTitle>
         <CardDescription className="text-sm">{description}</CardDescription>
       </CardHeader>
-      <CardFooter className="flex flex-wrap gap-2 pt-0">
-        {links.map((link) => (
-          <Button key={link.label} variant="link" size="sm" className="h-auto p-0 text-primary" asChild>
-            <Link href={link.href}>{link.label}</Link>
-          </Button>
-        ))}
-      </CardFooter>
+      {hasFooter && (
+        <CardFooter className="flex flex-wrap items-center gap-4 pt-0">
+          {mainAction && (
+            <Button asChild variant="secondary" size="sm">
+              <Link href={mainAction.href}>{mainAction.label}</Link>
+            </Button>
+          )}
+          {learnMore && (
+            <Button variant="link" size="sm" className="h-auto p-0 text-muted-foreground" asChild>
+              <Link href={learnMore.href}>Learn more</Link>
+            </Button>
+          )}
+        </CardFooter>
+      )}
     </Card>
   );
 }
