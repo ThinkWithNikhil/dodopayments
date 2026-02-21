@@ -229,11 +229,55 @@ const ELIGIBLE_COUNTRIES: CountryEntry[] = [
   { code: "ZM", name: "Zambia" },
 ];
 
+/** Countries not in the eligible list (for display in onboarding; eligibility checked separately). */
+const ADDITIONAL_COUNTRIES: CountryEntry[] = [
+  { code: "AF", name: "Afghanistan" },
+  { code: "BY", name: "Belarus" },
+  { code: "CD", name: "Democratic Republic of the Congo" },
+  { code: "CF", name: "Central African Republic" },
+  { code: "CU", name: "Cuba" },
+  { code: "IR", name: "Iran" },
+  { code: "KP", name: "North Korea" },
+  { code: "LY", name: "Libya" },
+  { code: "MD", name: "Moldova" },
+  { code: "MM", name: "Myanmar" },
+  { code: "RU", name: "Russia" },
+  { code: "SD", name: "Sudan" },
+  { code: "SO", name: "Somalia" },
+  { code: "SS", name: "South Sudan" },
+  { code: "SY", name: "Syria" },
+  { code: "UA", name: "Ukraine" },
+  { code: "VE", name: "Venezuela" },
+  { code: "XK", name: "Kosovo" },
+  { code: "YE", name: "Yemen" },
+];
+
+const ELIGIBLE_COUNTRY_CODES = new Set(
+  ELIGIBLE_COUNTRIES.map((c) => c.code)
+);
+
+/** Sorted list of eligible countries only (unchanged for existing consumers). */
 export const COUNTRY_LIST: CountryEntry[] = [...ELIGIBLE_COUNTRIES].sort(
   (a, b) => a.name.localeCompare(b.name)
 );
 
+/** Full list of all countries (eligible + additional) for onboarding dropdown. */
+export const ALL_COUNTRIES: CountryEntry[] = [
+  ...ELIGIBLE_COUNTRIES,
+  ...ADDITIONAL_COUNTRIES,
+].sort((a, b) => a.name.localeCompare(b.name));
+
+export const ELIGIBLE_COUNTRY_CODES_SET = ELIGIBLE_COUNTRY_CODES;
+
+export function isCountryEligible(code: string): boolean {
+  const normalized = code.length === 2 ? code.toUpperCase() : code;
+  return ELIGIBLE_COUNTRY_CODES.has(normalized);
+}
+
 export function getCountryByCode(code: string): CountryEntry | undefined {
   const normalized = code.length === 2 ? code.toUpperCase() : code;
-  return COUNTRY_LIST.find((c) => c.code === normalized);
+  return (
+    COUNTRY_LIST.find((c) => c.code === normalized) ??
+    ADDITIONAL_COUNTRIES.find((c) => c.code === normalized)
+  );
 }
