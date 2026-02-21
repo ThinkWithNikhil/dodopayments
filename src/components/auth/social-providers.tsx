@@ -34,12 +34,17 @@ type SocialVariant = "login" | "signup";
 type SocialProvidersProps = {
   variant: SocialVariant;
   onPasswordClick?: () => void;
+  onSuccess?: () => void;
 };
 
-export function SocialProviders({ variant, onPasswordClick }: SocialProvidersProps) {
+export function SocialProviders({ variant, onPasswordClick, onSuccess }: SocialProvidersProps) {
   const isLogin = variant === "login";
   const googleLabel = isLogin ? "Log in with Google" : "Sign up with Google";
   const githubLabel = isLogin ? "Log in with GitHub" : "Sign up with GitHub";
+
+  const handleSocialClick = () => {
+    onSuccess?.();
+  };
 
   return (
     <div className="flex flex-col gap-3">
@@ -54,11 +59,11 @@ export function SocialProviders({ variant, onPasswordClick }: SocialProvidersPro
           Log in with password
         </Button>
       )}
-      <Button type="button" variant="outline" className="w-full">
+      <Button type="button" variant="outline" className="w-full" onClick={handleSocialClick}>
         <GoogleIcon />
         {googleLabel}
       </Button>
-      <Button type="button" variant="outline" className="w-full">
+      <Button type="button" variant="outline" className="w-full" onClick={handleSocialClick}>
         <Github className="size-4 shrink-0" />
         {githubLabel}
       </Button>

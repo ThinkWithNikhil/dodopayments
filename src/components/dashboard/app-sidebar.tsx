@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useWorkspace } from "@/contexts/workspace-context";
 import {
   Rocket,
   UserCheck,
@@ -60,6 +61,9 @@ const footerNav = [
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const { businessName } = useWorkspace();
+  const displayName = businessName.trim() || "Your business";
+  const initial = displayName.charAt(0).toUpperCase() || "Y";
 
   return (
     <Sidebar className="dashboard-sidebar">
@@ -67,11 +71,11 @@ export function AppSidebar() {
         <div className="flex items-center gap-2 px-4 py-2">
           <Avatar className="size-8 shrink-0 bg-blue-500">
             <AvatarFallback className="bg-transparent text-white text-sm font-medium">
-              T
+              {initial}
             </AvatarFallback>
           </Avatar>
           <span className="min-w-0 flex-1 truncate text-sm font-medium text-sidebar-foreground">
-            ThinkWithNikhil
+            {displayName}
           </span>
           <Button
             variant="ghost"

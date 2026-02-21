@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AuthLayout } from "@/components/auth/auth-layout";
 import { AuthLogo } from "@/components/auth/auth-logo";
 import { AuthSeparator } from "@/components/auth/auth-separator";
@@ -12,10 +13,11 @@ import { Label } from "@/components/ui/label";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
+  const router = useRouter();
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Prototype: no backend logic
+    router.push("/onboarding");
   }
 
   return (
@@ -51,7 +53,7 @@ export default function SignupPage() {
           </form>
 
           <AuthSeparator />
-          <SocialProviders variant="signup" />
+          <SocialProviders variant="signup" onSuccess={() => router.push("/onboarding")} />
 
           <p className="text-center text-muted-foreground text-sm">
             Already have an account?{" "}
