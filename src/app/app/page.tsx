@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { DashboardGetStartedContent } from "@/components/dashboard/dashboard-get-started-content";
 
-const REVEAL_DURATION_MS = 600;
+const REVEAL_DURATION_MS = 800;
 
 function AppPageContent() {
   const router = useRouter();
