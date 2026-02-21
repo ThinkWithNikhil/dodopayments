@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -31,7 +31,10 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { COUNTRY_LIST } from "@/lib/countries";
+import { getPrefillFromEmail } from "@/lib/email-prefill";
 import { cn } from "@/lib/utils";
+
+const SIGNUP_EMAIL_KEY = "dodo_signup_email";
 
 const FLAG_BASE =
   "https://purecatamphetamine.github.io/country-flag-icons/3x2";
@@ -80,6 +83,45 @@ export default function OnboardingPage() {
   const [feedback, setFeedback] = useState("");
   const [agreedToPolicies, setAgreedToPolicies] = useState(false);
 
+  useEffect(() => {
+    if (typeof sessionStorage === "undefined") return;
+    const raw = sessionStorage.getItem(SIGNUP_EMAIL_KEY);
+    if (!raw?.trim()) return;
+    const prefill = getPrefillFromEmail(raw);
+    sessionStorage.removeItem(SIGNUP_EMAIL_KEY);
+    if (!prefill) return;
+    setBusinessName((prev) => (prev.trim() ? prev : prefill.businessName));
+    setWebsiteUrl((prev) => (prev.trim() ? prev : prefill.websiteUrl));
+  }, []);
+
+  useEffect(() => {
+    const validCode = (code: string) =>
+      COUNTRY_LIST.some((c) => c.code === code);
+    const trySetCountry = (code: string) => {
+      const normalized = code.toUpperCase();
+      if (!validCode(normalized)) return;
+      setLocation((prev) => (prev ? prev : normalized));
+    };
+
+    fetch("/api/geo")
+      .then((res) =>
+        res.status === 204 ? Promise.resolve(null) : res.ok ? res.json() : Promise.resolve(null)
+      )
+      .then((data: { countryCode?: string } | null) => {
+        if (data?.countryCode && validCode(data.countryCode)) {
+          trySetCountry(data.countryCode);
+          return;
+        }
+        return fetch("https://ipapi.co/json/")
+          .then((r) => r.json())
+          .then((d: { country_code?: string }) => {
+            if (d?.country_code) trySetCountry(d.country_code);
+          })
+          .catch(() => {});
+      })
+      .catch(() => {});
+  }, []);
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!location.trim() || !productCategory || !hearAbout || !agreedToPolicies) return;
@@ -102,7 +144,7 @@ export default function OnboardingPage() {
         </div>
         <CardTitle className="text-xl">Let&apos;s create your account</CardTitle>
         <CardDescription className="text-balance text-sm">
-          You can sign up as a business with company details, or as an individual using personal information.
+          Create account as a business with company details, or as an individual using personal information.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -119,7 +161,7 @@ export default function OnboardingPage() {
               required
               className="w-full"
             />
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-xs">
               Use your full name if you&apos;re an unregistered business.
             </p>
           </div>

@@ -15,8 +15,13 @@ export default function SignupPage() {
   const [email, setEmail] = useState("");
   const router = useRouter();
 
+  const SIGNUP_EMAIL_KEY = "dodo_signup_email";
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (typeof sessionStorage !== "undefined" && email.trim()) {
+      sessionStorage.setItem(SIGNUP_EMAIL_KEY, email.trim());
+    }
     router.push("/onboarding");
   }
 
