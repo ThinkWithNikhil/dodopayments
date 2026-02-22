@@ -57,6 +57,8 @@ This onboarding revamp focuses on reducing the time between signup and account v
 
 ### Let's take a look at reimagined version
 
+**Try the revamped onboarding live:** [dodopayments.vercel.app](https://dodopayments.vercel.app)
+
 <video src="public/demo/dodopayments-after.mp4" controls width="600"></video>
 
 *Video: [dodopayments-after.mp4](public/demo/dodopayments-after.mp4)*

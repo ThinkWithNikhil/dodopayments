@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AuthLayout } from "@/components/auth/auth-layout";
 import { AuthLogo } from "@/components/auth/auth-logo";
 import { AuthSeparator } from "@/components/auth/auth-separator";
@@ -11,13 +12,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Prototype: no backend logic
+    // Prototype: no backend logic; redirect to dashboard
+    router.push("/app");
   }
 
   return (
@@ -77,6 +80,7 @@ export default function LoginPage() {
           <SocialProviders
             variant="login"
             onPasswordClick={() => setShowPassword(true)}
+            onSuccess={() => router.push("/app")}
           />
 
           <p className="text-center text-muted-foreground text-sm">
