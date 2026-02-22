@@ -10,9 +10,9 @@ This onboarding revamp focuses on reducing the time between signup and account v
 
 ### Let's take a look at current experience
 
-<video src="public/demo/dodopayments-before.mp4" poster="public/demo/signup-before.png" controls width="600"></video>
+[![Current experience – watch on YouTube](https://img.youtube.com/vi/14yzG4bRT-A/hqdefault.jpg)](https://youtu.be/14yzG4bRT-A)
 
-*Video: [dodopayments-before.mp4](public/demo/dodopayments-before.mp4)*
+**[Watch: current experience](https://youtu.be/14yzG4bRT-A)**
 
 ### Now let's deconstruct what's good and what went wrong
 
@@ -59,13 +59,13 @@ This onboarding revamp focuses on reducing the time between signup and account v
 
 **Try the revamped onboarding live:** [dodopayments.vercel.app](https://dodopayments.vercel.app)
 
-<video src="public/demo/dodopayments-after.mp4" poster="public/demo/signup-after.png" controls width="600"></video>
+[![Reimagined flow – watch on YouTube](https://img.youtube.com/vi/JqKtgQ_szVU/hqdefault.jpg)](https://youtu.be/JqKtgQ_szVU)
 
-*Video: [dodopayments-after.mp4](public/demo/dodopayments-after.mp4)*
+**[Watch: reimagined flow](https://youtu.be/JqKtgQ_szVU)**
 
-<video src="public/demo/dodopayments-unsupported-case.mp4" poster="public/demo/create-unsupported-after.png" controls width="600"></video>
+[![Unsupported category/location flow – watch on YouTube](https://img.youtube.com/vi/xXd6g5Y0_5w/hqdefault.jpg)](https://youtu.be/xXd6g5Y0_5w)
 
-*Video: [dodopayments-unsupported-case.mp4](public/demo/dodopayments-unsupported-case.mp4)*
+**[Watch: unsupported category/location flow](https://youtu.be/xXd6g5Y0_5w)**
 
 ### Now let's deconstruct what's changed and why
 
