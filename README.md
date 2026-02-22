@@ -10,7 +10,7 @@ This onboarding revamp focuses on reducing the time between signup and account v
 
 ### Let's take a look at current experience
 
-<video src="public/demo/dodopayments-before.mp4" controls width="600"></video>
+<video src="public/demo/dodopayments-before.mp4" poster="public/demo/signup-before.png" controls width="600"></video>
 
 *Video: [dodopayments-before.mp4](public/demo/dodopayments-before.mp4)*
 
@@ -59,11 +59,11 @@ This onboarding revamp focuses on reducing the time between signup and account v
 
 **Try the revamped onboarding live:** [dodopayments.vercel.app](https://dodopayments.vercel.app)
 
-<video src="public/demo/dodopayments-after.mp4" controls width="600"></video>
+<video src="public/demo/dodopayments-after.mp4" poster="public/demo/signup-after.png" controls width="600"></video>
 
 *Video: [dodopayments-after.mp4](public/demo/dodopayments-after.mp4)*
 
-<video src="public/demo/dodopayments-unsupported-case.mp4" controls width="600"></video>
+<video src="public/demo/dodopayments-unsupported-case.mp4" poster="public/demo/create-unsupported-after.png" controls width="600"></video>
 
 *Video: [dodopayments-unsupported-case.mp4](public/demo/dodopayments-unsupported-case.mp4)*
 
