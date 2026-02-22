@@ -10,7 +10,7 @@ This onboarding revamp focuses on reducing the time between signup and account v
 
 ### Let's take a look at current experience
 
-[![Current experience – watch on YouTube](https://img.youtube.com/vi/14yzG4bRT-A/hqdefault.jpg)](https://youtu.be/14yzG4bRT-A)
+[![Current experience – watch on YouTube](https://img.youtube.com/vi/14yzG4bRT-A/maxresdefault.jpg)](https://youtu.be/14yzG4bRT-A)
 
 **[Watch: current experience](https://youtu.be/14yzG4bRT-A)**
 
@@ -59,11 +59,11 @@ This onboarding revamp focuses on reducing the time between signup and account v
 
 **Try the revamped onboarding live:** [dodopayments.vercel.app](https://dodopayments.vercel.app)
 
-[![Reimagined flow – watch on YouTube](https://img.youtube.com/vi/JqKtgQ_szVU/hqdefault.jpg)](https://youtu.be/JqKtgQ_szVU)
+[![Reimagined flow – watch on YouTube](https://img.youtube.com/vi/JqKtgQ_szVU/maxresdefault.jpg)](https://youtu.be/JqKtgQ_szVU)
 
 **[Watch: reimagined flow](https://youtu.be/JqKtgQ_szVU)**
 
-[![Unsupported category/location flow – watch on YouTube](https://img.youtube.com/vi/xXd6g5Y0_5w/hqdefault.jpg)](https://youtu.be/xXd6g5Y0_5w)
+[![Unsupported category/location flow – watch on YouTube](https://img.youtube.com/vi/xXd6g5Y0_5w/maxresdefault.jpg)](https://youtu.be/xXd6g5Y0_5w)
 
 **[Watch: unsupported category/location flow](https://youtu.be/xXd6g5Y0_5w)**
 
