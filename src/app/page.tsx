@@ -12,10 +12,10 @@ export default function Home() {
           Simple, secure payments for your business. Get started today.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
-          <Button asChild>
+          <Button asChild variant="outline">
             <Link href="/login">Log in</Link>
           </Button>
-          <Button asChild variant="outline">
+          <Button asChild>
             <Link href="/signup">Sign up</Link>
           </Button>
         </div>
